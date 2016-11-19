@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace UsingSongGetter
         private Settings _settings;
         private string _file;
 
-        private string lastSong = "";
+        private string lastOutput = "";
 
         public RefreshWorker(Settings settings, string file)
         {
@@ -28,10 +29,11 @@ namespace UsingSongGetter
             while(!_shouldStop)
             {
                 string song = getSong();
-                if (!song.Equals(lastSong))
+                string output = _settings.prefix + song + _settings.suffix;
+                if (!output.Equals(lastOutput))
                 {
-                    lastSong = song;
-                    File.WriteAllText(@_file, _settings.prefix + song + _settings.suffix);
+                    lastOutput = output;
+                    File.WriteAllText(@_file, output);
                 }
                 Thread.Sleep((int)((0.5 * _settings.refreshSpeed) * 1000));
             }
@@ -39,8 +41,23 @@ namespace UsingSongGetter
 
         private string getSong()
         {
-            Random rd = new Random();
-            return "" + rd.Next(1, 5);
+            switch(_settings.source)
+            {
+                case SongSource.SPOTIFY:
+                    foreach(Process process in Process.GetProcesses())
+                    {
+                        if(!String.IsNullOrEmpty(process.MainWindowTitle))
+                        {
+                            if(process.ProcessName.Equals("Spotify"))
+                            {
+                                return process.MainWindowTitle;
+                            }
+                        }
+                    }
+                    return "Can't get Spotify Song.";
+                default:
+                    return "Can't get Song.";
+            }
         }
 
         public void updateSettings(Settings settings)
