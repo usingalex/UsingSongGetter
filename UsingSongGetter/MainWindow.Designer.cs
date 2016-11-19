@@ -33,8 +33,21 @@
             this.titleBar_Minimize = new System.Windows.Forms.Panel();
             this.titleBar_Title = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.refreshSlider = new System.Windows.Forms.TrackBar();
+            this.prefixInput = new System.Windows.Forms.TextBox();
+            this.suffixInput = new System.Windows.Forms.TextBox();
+            this.songPreview = new System.Windows.Forms.TextBox();
+            this.modeSelector_Spotify = new System.Windows.Forms.RadioButton();
+            this.modeSelector_InternetExplorer = new System.Windows.Forms.RadioButton();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.prefixLabel = new System.Windows.Forms.Label();
+            this.suffixLabel = new System.Windows.Forms.Label();
+            this.songLabel = new System.Windows.Forms.Label();
+            this.refreshLabel = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
@@ -90,12 +103,130 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // refreshSlider
+            // 
+            this.refreshSlider.Location = new System.Drawing.Point(12, 135);
+            this.refreshSlider.Name = "refreshSlider";
+            this.refreshSlider.Size = new System.Drawing.Size(446, 45);
+            this.refreshSlider.TabIndex = 3;
+            this.refreshSlider.Value = 5;
+            // 
+            // prefixInput
+            // 
+            this.prefixInput.Location = new System.Drawing.Point(13, 64);
+            this.prefixInput.Name = "prefixInput";
+            this.prefixInput.Size = new System.Drawing.Size(100, 20);
+            this.prefixInput.TabIndex = 4;
+            // 
+            // suffixInput
+            // 
+            this.suffixInput.Location = new System.Drawing.Point(358, 64);
+            this.suffixInput.Name = "suffixInput";
+            this.suffixInput.Size = new System.Drawing.Size(100, 20);
+            this.suffixInput.TabIndex = 5;
+            // 
+            // songPreview
+            // 
+            this.songPreview.Location = new System.Drawing.Point(119, 64);
+            this.songPreview.Name = "songPreview";
+            this.songPreview.ReadOnly = true;
+            this.songPreview.Size = new System.Drawing.Size(233, 20);
+            this.songPreview.TabIndex = 6;
+            // 
+            // modeSelector_Spotify
+            // 
+            this.modeSelector_Spotify.AutoSize = true;
+            this.modeSelector_Spotify.Checked = true;
+            this.modeSelector_Spotify.Location = new System.Drawing.Point(12, 293);
+            this.modeSelector_Spotify.Name = "modeSelector_Spotify";
+            this.modeSelector_Spotify.Size = new System.Drawing.Size(57, 17);
+            this.modeSelector_Spotify.TabIndex = 8;
+            this.modeSelector_Spotify.TabStop = true;
+            this.modeSelector_Spotify.Text = "Spotify";
+            this.modeSelector_Spotify.UseVisualStyleBackColor = true;
+            // 
+            // modeSelector_InternetExplorer
+            // 
+            this.modeSelector_InternetExplorer.AutoSize = true;
+            this.modeSelector_InternetExplorer.Location = new System.Drawing.Point(11, 316);
+            this.modeSelector_InternetExplorer.Name = "modeSelector_InternetExplorer";
+            this.modeSelector_InternetExplorer.Size = new System.Drawing.Size(102, 17);
+            this.modeSelector_InternetExplorer.TabIndex = 9;
+            this.modeSelector_InternetExplorer.Text = "Internet Explorer";
+            this.modeSelector_InternetExplorer.UseVisualStyleBackColor = true;
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(358, 287);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(100, 23);
+            this.saveButton.TabIndex = 10;
+            this.saveButton.Text = "Save Settings";
+            this.saveButton.UseVisualStyleBackColor = true;
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(358, 316);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(100, 23);
+            this.resetButton.TabIndex = 11;
+            this.resetButton.Text = "Reset Settings ";
+            this.resetButton.UseVisualStyleBackColor = true;
+            // 
+            // prefixLabel
+            // 
+            this.prefixLabel.AutoSize = true;
+            this.prefixLabel.Location = new System.Drawing.Point(46, 48);
+            this.prefixLabel.Name = "prefixLabel";
+            this.prefixLabel.Size = new System.Drawing.Size(33, 13);
+            this.prefixLabel.TabIndex = 12;
+            this.prefixLabel.Text = "Prefix";
+            // 
+            // suffixLabel
+            // 
+            this.suffixLabel.AutoSize = true;
+            this.suffixLabel.Location = new System.Drawing.Point(391, 47);
+            this.suffixLabel.Name = "suffixLabel";
+            this.suffixLabel.Size = new System.Drawing.Size(33, 13);
+            this.suffixLabel.TabIndex = 13;
+            this.suffixLabel.Text = "Suffix";
+            // 
+            // songLabel
+            // 
+            this.songLabel.AutoSize = true;
+            this.songLabel.Location = new System.Drawing.Point(219, 47);
+            this.songLabel.Name = "songLabel";
+            this.songLabel.Size = new System.Drawing.Size(32, 13);
+            this.songLabel.TabIndex = 14;
+            this.songLabel.Text = "Song";
+            // 
+            // refreshLabel
+            // 
+            this.refreshLabel.AutoSize = true;
+            this.refreshLabel.Location = new System.Drawing.Point(200, 119);
+            this.refreshLabel.Name = "refreshLabel";
+            this.refreshLabel.Size = new System.Drawing.Size(70, 13);
+            this.refreshLabel.TabIndex = 15;
+            this.refreshLabel.Text = "Refresh-Rate";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(470, 670);
+            this.Controls.Add(this.refreshLabel);
+            this.Controls.Add(this.songLabel);
+            this.Controls.Add(this.suffixLabel);
+            this.Controls.Add(this.prefixLabel);
+            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.modeSelector_InternetExplorer);
+            this.Controls.Add(this.modeSelector_Spotify);
+            this.Controls.Add(this.songPreview);
+            this.Controls.Add(this.suffixInput);
+            this.Controls.Add(this.prefixInput);
+            this.Controls.Add(this.refreshSlider);
             this.Controls.Add(this.titleBar_Minimize);
             this.Controls.Add(this.titleBar_Close);
             this.Controls.Add(this.titleBar);
@@ -106,7 +237,9 @@
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,6 +250,18 @@
         private System.Windows.Forms.Panel titleBar_Minimize;
         private System.Windows.Forms.Label titleBar_Title;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TrackBar refreshSlider;
+        private System.Windows.Forms.TextBox prefixInput;
+        private System.Windows.Forms.TextBox suffixInput;
+        private System.Windows.Forms.TextBox songPreview;
+        private System.Windows.Forms.RadioButton modeSelector_Spotify;
+        private System.Windows.Forms.RadioButton modeSelector_InternetExplorer;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Label prefixLabel;
+        private System.Windows.Forms.Label suffixLabel;
+        private System.Windows.Forms.Label songLabel;
+        private System.Windows.Forms.Label refreshLabel;
     }
 }
 
