@@ -30,6 +30,7 @@ namespace UsingSongGetter
             this.refreshSpeed = refreshSpeed;
         }
 
+        //Function for getting the Default Settings.
         public static Settings defaultValues()
         {
             return new Settings("", "", SongSource.SPOTIFY, 5);

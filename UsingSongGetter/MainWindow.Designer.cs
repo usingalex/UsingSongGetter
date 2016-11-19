@@ -45,6 +45,8 @@
             this.suffixLabel = new System.Windows.Forms.Label();
             this.songLabel = new System.Windows.Forms.Label();
             this.refreshLabel = new System.Windows.Forms.Label();
+            this.tabSelector = new System.Windows.Forms.ComboBox();
+            this.refreshTabsButton = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
@@ -105,7 +107,7 @@
             // 
             // refreshSlider
             // 
-            this.refreshSlider.Location = new System.Drawing.Point(12, 135);
+            this.refreshSlider.Location = new System.Drawing.Point(12, 153);
             this.refreshSlider.Name = "refreshSlider";
             this.refreshSlider.Size = new System.Drawing.Size(446, 45);
             this.refreshSlider.TabIndex = 3;
@@ -138,7 +140,7 @@
             // 
             this.modeSelector_Spotify.AutoSize = true;
             this.modeSelector_Spotify.Checked = true;
-            this.modeSelector_Spotify.Location = new System.Drawing.Point(12, 293);
+            this.modeSelector_Spotify.Location = new System.Drawing.Point(12, 300);
             this.modeSelector_Spotify.Name = "modeSelector_Spotify";
             this.modeSelector_Spotify.Size = new System.Drawing.Size(57, 17);
             this.modeSelector_Spotify.TabIndex = 8;
@@ -149,7 +151,7 @@
             // modeSelector_InternetExplorer
             // 
             this.modeSelector_InternetExplorer.AutoSize = true;
-            this.modeSelector_InternetExplorer.Location = new System.Drawing.Point(11, 316);
+            this.modeSelector_InternetExplorer.Location = new System.Drawing.Point(11, 323);
             this.modeSelector_InternetExplorer.Name = "modeSelector_InternetExplorer";
             this.modeSelector_InternetExplorer.Size = new System.Drawing.Size(102, 17);
             this.modeSelector_InternetExplorer.TabIndex = 9;
@@ -158,7 +160,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(358, 287);
+            this.saveButton.Location = new System.Drawing.Point(358, 294);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 23);
             this.saveButton.TabIndex = 10;
@@ -168,7 +170,7 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(358, 316);
+            this.resetButton.Location = new System.Drawing.Point(358, 323);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(100, 23);
             this.resetButton.TabIndex = 11;
@@ -206,18 +208,41 @@
             // refreshLabel
             // 
             this.refreshLabel.AutoSize = true;
-            this.refreshLabel.Location = new System.Drawing.Point(200, 119);
+            this.refreshLabel.Location = new System.Drawing.Point(200, 137);
             this.refreshLabel.Name = "refreshLabel";
             this.refreshLabel.Size = new System.Drawing.Size(70, 13);
             this.refreshLabel.TabIndex = 15;
             this.refreshLabel.Text = "Refresh-Rate";
+            // 
+            // tabSelector
+            // 
+            this.tabSelector.FormattingEnabled = true;
+            this.tabSelector.Location = new System.Drawing.Point(11, 382);
+            this.tabSelector.Name = "tabSelector";
+            this.tabSelector.Size = new System.Drawing.Size(259, 21);
+            this.tabSelector.TabIndex = 16;
+            this.tabSelector.Visible = false;
+            this.tabSelector.SelectedIndexChanged += new System.EventHandler(this.tabSelector_SelectedIndexChanged);
+            // 
+            // refreshTabsButton
+            // 
+            this.refreshTabsButton.Location = new System.Drawing.Point(11, 423);
+            this.refreshTabsButton.Name = "refreshTabsButton";
+            this.refreshTabsButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshTabsButton.TabIndex = 17;
+            this.refreshTabsButton.Text = "Refresh";
+            this.refreshTabsButton.UseVisualStyleBackColor = true;
+            this.refreshTabsButton.Visible = false;
+            this.refreshTabsButton.Click += new System.EventHandler(this.refreshTabsButton_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(470, 670);
+            this.ClientSize = new System.Drawing.Size(470, 531);
+            this.Controls.Add(this.refreshTabsButton);
+            this.Controls.Add(this.tabSelector);
             this.Controls.Add(this.refreshLabel);
             this.Controls.Add(this.songLabel);
             this.Controls.Add(this.suffixLabel);
@@ -265,6 +290,8 @@
         private System.Windows.Forms.Label suffixLabel;
         private System.Windows.Forms.Label songLabel;
         private System.Windows.Forms.Label refreshLabel;
+        private System.Windows.Forms.ComboBox tabSelector;
+        private System.Windows.Forms.Button refreshTabsButton;
     }
 }
 
