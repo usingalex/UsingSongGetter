@@ -1,4 +1,25 @@
-﻿namespace UsingSongGetter
+﻿/*
+    UsingSongGetter is a easy to use Program, to get your Current Playing Song
+    and Display it for example in your Livestream.
+
+    Copyright (C) 2016  usingalex
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+	If you need Help, or you have any Questions Contact me at: usingalex@gmail.com
+*/
+namespace UsingSongGetter
 {
     partial class MainWindow
     {
@@ -30,6 +51,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.titleBar = new System.Windows.Forms.Panel();
+            this.titleBarLogo = new System.Windows.Forms.PictureBox();
             this.titleBar_Title = new System.Windows.Forms.Label();
             this.titleBar_Close = new System.Windows.Forms.Panel();
             this.titleBar_Minimize = new System.Windows.Forms.Panel();
@@ -48,10 +70,10 @@
             this.tabSelector = new System.Windows.Forms.ComboBox();
             this.refreshTabsButton = new System.Windows.Forms.Button();
             this.tabSelectorLabel = new System.Windows.Forms.Label();
-            this.titleBarLogo = new System.Windows.Forms.PictureBox();
+            this.aboutButton = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
@@ -66,6 +88,15 @@
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             this.titleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseMove);
             this.titleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseUp);
+            // 
+            // titleBarLogo
+            // 
+            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.logo;
+            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
+            this.titleBarLogo.Name = "titleBarLogo";
+            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
+            this.titleBarLogo.TabIndex = 3;
+            this.titleBarLogo.TabStop = false;
             // 
             // titleBar_Title
             // 
@@ -239,14 +270,15 @@
             this.tabSelectorLabel.TabIndex = 18;
             this.tabSelectorLabel.Text = "Select Tab";
             // 
-            // titleBarLogo
+            // aboutButton
             // 
-            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.logo;
-            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
-            this.titleBarLogo.Name = "titleBarLogo";
-            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
-            this.titleBarLogo.TabIndex = 3;
-            this.titleBarLogo.TabStop = false;
+            this.aboutButton.Location = new System.Drawing.Point(11, 496);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(75, 23);
+            this.aboutButton.TabIndex = 19;
+            this.aboutButton.Text = "About";
+            this.aboutButton.UseVisualStyleBackColor = true;
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // MainWindow
             // 
@@ -254,6 +286,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(470, 531);
+            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.tabSelectorLabel);
             this.Controls.Add(this.refreshTabsButton);
             this.Controls.Add(this.tabSelector);
@@ -279,8 +312,8 @@
             this.Text = "UsingSongGetter";
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +341,7 @@
         private System.Windows.Forms.ComboBox tabSelector;
         private System.Windows.Forms.Button refreshTabsButton;
         private System.Windows.Forms.Label tabSelectorLabel;
+        private System.Windows.Forms.Button aboutButton;
     }
 }
 

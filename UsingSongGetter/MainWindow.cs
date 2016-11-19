@@ -12,6 +12,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+    UsingSongGetter is a easy to use Program, to get your Current Playing Song
+    and Display it for example in your Livestream.
+
+    Copyright (C) 2016  usingalex
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+	If you need Help, or you have any Questions Contact me at: usingalex@gmail.com
+*/
+
 namespace UsingSongGetter
 {
     public partial class MainWindow : Form
@@ -112,6 +134,7 @@ namespace UsingSongGetter
             refreshLabel.Location = new Point(((refreshSlider.Size.Width / 2) + refreshSlider.Location.X) - (refreshLabel.Size.Width / 2), refreshLabel.Location.Y);
         }
 
+        //Function for Updation the Song-Preview.
         public static void updateSongPreview(string song)
         {
             instance.Invoke(new Action(()=> {
@@ -227,6 +250,14 @@ namespace UsingSongGetter
         private void tabSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             _refreshWorker._selectedTab = tabSelector.SelectedIndex;
+        }
+
+        //Method for Displaying information about the Programm.
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("UsingSongGetter is a esay to use Programm, to get your Current Playing Song \n"
+                          + "and Display it for example in your Livestream. \n\n"
+                          + "Copyright(C) 2016  usingalex", "About", MessageBoxButtons.OK);
         }
     }
 }
