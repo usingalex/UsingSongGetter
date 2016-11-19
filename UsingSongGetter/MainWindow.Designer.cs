@@ -110,6 +110,7 @@
             this.refreshSlider.Size = new System.Drawing.Size(446, 45);
             this.refreshSlider.TabIndex = 3;
             this.refreshSlider.Value = 5;
+            this.refreshSlider.ValueChanged += new System.EventHandler(this.refreshSlider_ValueChanged);
             // 
             // prefixInput
             // 
@@ -161,8 +162,9 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 23);
             this.saveButton.TabIndex = 10;
-            this.saveButton.Text = "Save Settings";
+            this.saveButton.Text = "Apply Settings";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
             // resetButton
             // 
@@ -172,6 +174,7 @@
             this.resetButton.TabIndex = 11;
             this.resetButton.Text = "Reset Settings ";
             this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // prefixLabel
             // 
