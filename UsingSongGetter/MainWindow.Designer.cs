@@ -47,6 +47,7 @@
             this.refreshLabel = new System.Windows.Forms.Label();
             this.tabSelector = new System.Windows.Forms.ComboBox();
             this.refreshTabsButton = new System.Windows.Forms.Button();
+            this.tabSelectorLabel = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
@@ -216,6 +217,7 @@
             // 
             // tabSelector
             // 
+            this.tabSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tabSelector.FormattingEnabled = true;
             this.tabSelector.Location = new System.Drawing.Point(11, 382);
             this.tabSelector.Name = "tabSelector";
@@ -235,12 +237,22 @@
             this.refreshTabsButton.Visible = false;
             this.refreshTabsButton.Click += new System.EventHandler(this.refreshTabsButton_Click);
             // 
+            // tabSelectorLabel
+            // 
+            this.tabSelectorLabel.AutoSize = true;
+            this.tabSelectorLabel.Location = new System.Drawing.Point(111, 366);
+            this.tabSelectorLabel.Name = "tabSelectorLabel";
+            this.tabSelectorLabel.Size = new System.Drawing.Size(59, 13);
+            this.tabSelectorLabel.TabIndex = 18;
+            this.tabSelectorLabel.Text = "Select Tab";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(470, 531);
+            this.Controls.Add(this.tabSelectorLabel);
             this.Controls.Add(this.refreshTabsButton);
             this.Controls.Add(this.tabSelector);
             this.Controls.Add(this.refreshLabel);
@@ -292,6 +304,7 @@
         private System.Windows.Forms.Label refreshLabel;
         private System.Windows.Forms.ComboBox tabSelector;
         private System.Windows.Forms.Button refreshTabsButton;
+        private System.Windows.Forms.Label tabSelectorLabel;
     }
 }
 

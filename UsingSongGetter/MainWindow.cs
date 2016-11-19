@@ -70,6 +70,7 @@ namespace UsingSongGetter
             //Hide the TabSelector.
             tabSelector.Visible = false;
             refreshTabsButton.Visible = false;
+            tabSelectorLabel.Visible = false;
 
             //Check which source is Selected, and check the Corresponding Radio-Box.
             switch (_settings.source)
@@ -82,6 +83,7 @@ namespace UsingSongGetter
                     //Show the TabSelector.
                     tabSelector.Visible = true;
                     refreshTabsButton.Visible = true;
+                    tabSelectorLabel.Visible = true;
                     break;
             }
         }

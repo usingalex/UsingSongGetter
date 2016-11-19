@@ -70,7 +70,7 @@ namespace UsingSongGetter
                             }
                         }
                     }
-                    return "Can't get Spotify Song.";
+                    return "Can't get Song.";
                 //If InternetExplorer is selected.
                 case SongSource.IE:
                     //Get all tabs from the TabManager.
@@ -92,7 +92,7 @@ namespace UsingSongGetter
                         //Return the edited tab title.
                         return song;
                     }
-                    return "Can't get IE Song.";
+                    return "Can't get Song.";
                 default:
                     return "Can't get Song.";
             }
