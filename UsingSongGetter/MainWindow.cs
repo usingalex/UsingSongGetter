@@ -17,6 +17,8 @@ namespace UsingSongGetter
     public partial class MainWindow : Form
     {
 
+        public static volatile MainWindow instance;
+
         private bool _titleBarClicked = false;
         private Point _lastCursorPosition;
 
@@ -28,6 +30,7 @@ namespace UsingSongGetter
         public MainWindow()
         {
             InitializeComponent();
+            instance = this;
 
             //Get the Path of the Directory and currentSong file.
             string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UsingSongGetter");
@@ -107,6 +110,13 @@ namespace UsingSongGetter
             refreshLabel.Text = "Refresh-Rate: " + (0.5 * refreshSlider.Value) + " Second/s";
             //Center the Location of the Refresh-Label.
             refreshLabel.Location = new Point(((refreshSlider.Size.Width / 2) + refreshSlider.Location.X) - (refreshLabel.Size.Width / 2), refreshLabel.Location.Y);
+        }
+
+        public static void updateSongPreview(string song)
+        {
+            instance.Invoke(new Action(()=> {
+                instance.songPreview.Text = song;
+            }));
         }
 
         //Function for Detecting if the Title-Bar is Clicked.

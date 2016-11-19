@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.titleBar = new System.Windows.Forms.Panel();
+            this.titleBarLogo = new System.Windows.Forms.PictureBox();
+            this.titleBar_Title = new System.Windows.Forms.Label();
             this.titleBar_Close = new System.Windows.Forms.Panel();
             this.titleBar_Minimize = new System.Windows.Forms.Panel();
-            this.titleBar_Title = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.refreshSlider = new System.Windows.Forms.TrackBar();
             this.prefixInput = new System.Windows.Forms.TextBox();
             this.suffixInput = new System.Windows.Forms.TextBox();
@@ -49,14 +49,14 @@
             this.refreshTabsButton = new System.Windows.Forms.Button();
             this.tabSelectorLabel = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
             // 
             this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.titleBar.Controls.Add(this.pictureBox1);
+            this.titleBar.Controls.Add(this.titleBarLogo);
             this.titleBar.Controls.Add(this.titleBar_Title);
             this.titleBar.Location = new System.Drawing.Point(0, 0);
             this.titleBar.Name = "titleBar";
@@ -65,6 +65,24 @@
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             this.titleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseMove);
             this.titleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseUp);
+            // 
+            // titleBarLogo
+            // 
+            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.titleLogo1;
+            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
+            this.titleBarLogo.Name = "titleBarLogo";
+            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
+            this.titleBarLogo.TabIndex = 3;
+            this.titleBarLogo.TabStop = false;
+            // 
+            // titleBar_Title
+            // 
+            this.titleBar_Title.AutoSize = true;
+            this.titleBar_Title.Location = new System.Drawing.Point(25, 7);
+            this.titleBar_Title.Name = "titleBar_Title";
+            this.titleBar_Title.Size = new System.Drawing.Size(88, 13);
+            this.titleBar_Title.TabIndex = 3;
+            this.titleBar_Title.Text = "UsingSongGetter";
             // 
             // titleBar_Close
             // 
@@ -87,24 +105,6 @@
             this.titleBar_Minimize.MouseClick += new System.Windows.Forms.MouseEventHandler(this.titleBar_Minimize_MouseClick);
             this.titleBar_Minimize.MouseEnter += new System.EventHandler(this.titleBar_Minimize_MouseEnter);
             this.titleBar_Minimize.MouseLeave += new System.EventHandler(this.titleBar_Minimize_MouseLeave);
-            // 
-            // titleBar_Title
-            // 
-            this.titleBar_Title.AutoSize = true;
-            this.titleBar_Title.Location = new System.Drawing.Point(25, 7);
-            this.titleBar_Title.Name = "titleBar_Title";
-            this.titleBar_Title.Size = new System.Drawing.Size(88, 13);
-            this.titleBar_Title.TabIndex = 3;
-            this.titleBar_Title.Text = "UsingSongGetter";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UsingSongGetter.Properties.Resources.titleLogo1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // refreshSlider
             // 
@@ -136,6 +136,7 @@
             this.songPreview.ReadOnly = true;
             this.songPreview.Size = new System.Drawing.Size(233, 20);
             this.songPreview.TabIndex = 6;
+            this.songPreview.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // modeSelector_Spotify
             // 
@@ -276,7 +277,7 @@
             this.Text = "UsingSongGetter";
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -289,7 +290,7 @@
         private System.Windows.Forms.Panel titleBar_Close;
         private System.Windows.Forms.Panel titleBar_Minimize;
         private System.Windows.Forms.Label titleBar_Title;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox titleBarLogo;
         private System.Windows.Forms.TrackBar refreshSlider;
         private System.Windows.Forms.TextBox prefixInput;
         private System.Windows.Forms.TextBox suffixInput;

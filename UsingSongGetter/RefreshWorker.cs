@@ -41,6 +41,7 @@ namespace UsingSongGetter
                 if (!output.Equals(lastOutput))
                 {
                     lastOutput = output;
+                    MainWindow.updateSongPreview(song);
                     File.WriteAllText(@_file, output);
                 }
                 //Sleep for the selected interval.
