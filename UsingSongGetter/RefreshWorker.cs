@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SpotifyAPI.Local;
 
 /*
     UsingSongGetter is a easy to use Program, to get your Current Playing Song
@@ -41,6 +42,7 @@ namespace UsingSongGetter
         private volatile bool _shouldStop = false;
         private Settings _settings;
         private string _file;
+        private SpotifyLocalAPI _spotify;
 
         private string lastOutput = "";
 
@@ -48,6 +50,9 @@ namespace UsingSongGetter
         {
             _settings = settings;
             _file = file;
+
+            _spotify = new SpotifyLocalAPI();
+            _spotify.Connect();
         }
 
         //Function for Updating the current song.
@@ -75,21 +80,21 @@ namespace UsingSongGetter
         private string getSong()
         {
             //Check which Source is selected.
-            switch(_settings.source)
+            switch (_settings.source)
             {
                 //If Spotify is selected.
                 case SongSource.SPOTIFY:
-                    //Go through all Processes.
-                    foreach (Process process in Process.GetProcesses())
+                    //Check if Spotify is Running.
+                    if(SpotifyLocalAPI.IsSpotifyRunning())
                     {
-                        //If the process as a Window.
-                        if(!String.IsNullOrEmpty(process.MainWindowTitle))
+                        //Check if Spotify is Connected.
+                        if(_spotify.Connect())
                         {
-                            //If the process is called Spotify.
-                            if(process.ProcessName.Equals("Spotify"))
+                            //Check if a Song is playing.
+                            if (_spotify.GetStatus().Playing)
                             {
-                                //Return the title of the Spotify Window.
-                                return process.MainWindowTitle;
+                                //Return the name of the Playing Song.
+                                return _spotify.GetStatus().Track.TrackResource.Name;
                             }
                         }
                     }

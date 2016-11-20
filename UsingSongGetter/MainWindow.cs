@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SpotifyAPI.Local;
 
 /*
     UsingSongGetter is a easy to use Program, to get your Current Playing Song
@@ -39,7 +40,7 @@ namespace UsingSongGetter
     public partial class MainWindow : Form
     {
 
-        public static volatile MainWindow instance;
+        public static MainWindow instance;
 
         private bool _titleBarClicked = false;
         private Point _lastCursorPosition;
@@ -284,7 +285,11 @@ namespace UsingSongGetter
         {
             MessageBox.Show("UsingSongGetter is a esay to use Programm, to get your Current Playing Song \n"
                           + "and Display it for example in your Livestream. \n\n"
-                          + "Copyright(C) 2016  usingalex", "About", MessageBoxButtons.OK);
+                          + "Copyright(C) 2016  usingalex \n\n"
+                          + "UsingSongGetter uses the following libarys:\n"
+                          + "- SpotifyAPI-NET \n"
+                          + "- Newtonsoft.Json"
+                          , "About", MessageBoxButtons.OK);
         }
 
         //Hide the Window and show the Tray-Icon, when the Hide-Button is Clicked.

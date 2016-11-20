@@ -30,3 +30,8 @@ Xsplit:
 - Click the 3 Points next to the "File Path" Textbox.
 - Select "C:/Users/YOURNAME/AppData/Roaming/UsingSongGetter/currentSong.txt".
 - Click "Open".
+
+UsingSongGetter uses the following libarys:
+
+- SpotifyAPI-NET
+- Newtonsoft.Json

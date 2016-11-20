@@ -51,7 +51,6 @@ namespace UsingSongGetter
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.titleBar = new System.Windows.Forms.Panel();
-            this.titleBarLogo = new System.Windows.Forms.PictureBox();
             this.titleBar_Title = new System.Windows.Forms.Label();
             this.titleBar_Close = new System.Windows.Forms.Panel();
             this.titleBar_Minimize = new System.Windows.Forms.Panel();
@@ -72,9 +71,10 @@ namespace UsingSongGetter
             this.tabSelectorLabel = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
             this.hideButton = new System.Windows.Forms.Button();
+            this.titleBarLogo = new System.Windows.Forms.PictureBox();
             this.titleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
@@ -89,15 +89,6 @@ namespace UsingSongGetter
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             this.titleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseMove);
             this.titleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseUp);
-            // 
-            // titleBarLogo
-            // 
-            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.logo;
-            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
-            this.titleBarLogo.Name = "titleBarLogo";
-            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
-            this.titleBarLogo.TabIndex = 3;
-            this.titleBarLogo.TabStop = false;
             // 
             // titleBar_Title
             // 
@@ -291,6 +282,15 @@ namespace UsingSongGetter
             this.hideButton.UseVisualStyleBackColor = true;
             this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
             // 
+            // titleBarLogo
+            // 
+            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.logo;
+            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
+            this.titleBarLogo.Name = "titleBarLogo";
+            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
+            this.titleBarLogo.TabIndex = 3;
+            this.titleBarLogo.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,8 +324,8 @@ namespace UsingSongGetter
             this.Text = "UsingSongGetter";
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
