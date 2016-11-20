@@ -71,6 +71,7 @@ namespace UsingSongGetter
             this.refreshTabsButton = new System.Windows.Forms.Button();
             this.tabSelectorLabel = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.hideButton = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
@@ -280,12 +281,23 @@ namespace UsingSongGetter
             this.aboutButton.UseVisualStyleBackColor = true;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
+            // hideButton
+            // 
+            this.hideButton.Location = new System.Drawing.Point(358, 496);
+            this.hideButton.Name = "hideButton";
+            this.hideButton.Size = new System.Drawing.Size(100, 23);
+            this.hideButton.TabIndex = 20;
+            this.hideButton.Text = "Hide Window";
+            this.hideButton.UseVisualStyleBackColor = true;
+            this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(470, 531);
+            this.Controls.Add(this.hideButton);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.tabSelectorLabel);
             this.Controls.Add(this.refreshTabsButton);
@@ -342,6 +354,7 @@ namespace UsingSongGetter
         private System.Windows.Forms.Button refreshTabsButton;
         private System.Windows.Forms.Label tabSelectorLabel;
         private System.Windows.Forms.Button aboutButton;
+        private System.Windows.Forms.Button hideButton;
     }
 }
 

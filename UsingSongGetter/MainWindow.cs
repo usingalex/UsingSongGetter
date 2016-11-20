@@ -49,6 +49,9 @@ namespace UsingSongGetter
         private Thread _refreshThread;
         private Settings _settings;
 
+        private ContextMenu _trayMenu;
+        private NotifyIcon _trayIcon;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -72,6 +75,18 @@ namespace UsingSongGetter
             _cm = new ConfigManager(dir, "settings.cfg");
             _settings = _cm.loadSettings();
             applySettings();
+
+            //Initialize tray-icon
+            _trayMenu = new ContextMenu();
+            _trayMenu.MenuItems.Add("Show", Tray_Show);
+            _trayMenu.MenuItems.Add("Close", Tray_Close);
+
+            _trayIcon = new NotifyIcon();
+            _trayIcon.Text = "UsingSongGetter";
+            _trayIcon.Icon = UsingSongGetter.Properties.Resources.trayIcon;
+
+            _trayIcon.ContextMenu = _trayMenu;
+            _trayIcon.Visible = false;
 
             //Setup the Refresh-Thread.
             _refreshWorker = new RefreshWorker(_settings, file);
@@ -134,6 +149,21 @@ namespace UsingSongGetter
             refreshLabel.Location = new Point(((refreshSlider.Size.Width / 2) + refreshSlider.Location.X) - (refreshLabel.Size.Width / 2), refreshLabel.Location.Y);
         }
 
+        //Method for exiting the Application.
+        private void closeApplication()
+        {
+            //Hide the Tray-Icon.
+            _trayIcon.Visible = false;
+            
+            //Stop the Refresh-Thread.
+            _refreshWorker.requestStop();
+            _refreshThread.Abort();
+            _refreshThread.Join();
+
+            //Exit the Application.
+            Application.Exit();
+        }
+
         //Function for Updation the Song-Preview.
         public static void updateSongPreview(string song)
         {
@@ -182,10 +212,7 @@ namespace UsingSongGetter
         //Exit the Application when the Close-Button is Clicked.
         private void titleBar_Close_MouseClick(object sender, MouseEventArgs e)
         {
-            _refreshWorker.requestStop();
-            _refreshThread.Abort();
-            _refreshThread.Join();
-            Application.Exit();
+            closeApplication();
         }
 
         //Change the Minimize-Button Color on Hover.
@@ -258,6 +285,26 @@ namespace UsingSongGetter
             MessageBox.Show("UsingSongGetter is a esay to use Programm, to get your Current Playing Song \n"
                           + "and Display it for example in your Livestream. \n\n"
                           + "Copyright(C) 2016  usingalex", "About", MessageBoxButtons.OK);
+        }
+
+        //Hide the Window and show the Tray-Icon, when the Hide-Button is Clicked.
+        private void hideButton_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            _trayIcon.Visible = true;
+        }
+
+        //Show the Window and hide the Tray-Icon, when the Show-Button of the Tray is Clicked.
+        private void Tray_Show(object sender, EventArgs e)
+        {
+            this.Visible = true;
+            _trayIcon.Visible = false;
+        }
+
+        //Exit the Application when the Close-Button of the Tray is Clicked.
+        private void Tray_Close(object sender, EventArgs e)
+        {
+            closeApplication();
         }
 
     }
