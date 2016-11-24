@@ -51,6 +51,7 @@ namespace UsingSongGetter
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.titleBar = new System.Windows.Forms.Panel();
+            this.titleBarLogo = new System.Windows.Forms.PictureBox();
             this.titleBar_Title = new System.Windows.Forms.Label();
             this.titleBar_Close = new System.Windows.Forms.Panel();
             this.titleBar_Minimize = new System.Windows.Forms.Panel();
@@ -71,10 +72,11 @@ namespace UsingSongGetter
             this.tabSelectorLabel = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
             this.hideButton = new System.Windows.Forms.Button();
-            this.titleBarLogo = new System.Windows.Forms.PictureBox();
+            this.invalidSongInput = new System.Windows.Forms.TextBox();
+            this.invalidSongLabel = new System.Windows.Forms.Label();
             this.titleBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
@@ -89,6 +91,15 @@ namespace UsingSongGetter
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             this.titleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseMove);
             this.titleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseUp);
+            // 
+            // titleBarLogo
+            // 
+            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.logo;
+            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
+            this.titleBarLogo.Name = "titleBarLogo";
+            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
+            this.titleBarLogo.TabIndex = 3;
+            this.titleBarLogo.TabStop = false;
             // 
             // titleBar_Title
             // 
@@ -282,14 +293,21 @@ namespace UsingSongGetter
             this.hideButton.UseVisualStyleBackColor = true;
             this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
             // 
-            // titleBarLogo
+            // invalidSongInput
             // 
-            this.titleBarLogo.Image = global::UsingSongGetter.Properties.Resources.logo;
-            this.titleBarLogo.Location = new System.Drawing.Point(0, 0);
-            this.titleBarLogo.Name = "titleBarLogo";
-            this.titleBarLogo.Size = new System.Drawing.Size(25, 25);
-            this.titleBarLogo.TabIndex = 3;
-            this.titleBarLogo.TabStop = false;
+            this.invalidSongInput.Location = new System.Drawing.Point(13, 102);
+            this.invalidSongInput.Name = "invalidSongInput";
+            this.invalidSongInput.Size = new System.Drawing.Size(100, 20);
+            this.invalidSongInput.TabIndex = 21;
+            // 
+            // invalidSongLabel
+            // 
+            this.invalidSongLabel.AutoSize = true;
+            this.invalidSongLabel.Location = new System.Drawing.Point(30, 87);
+            this.invalidSongLabel.Name = "invalidSongLabel";
+            this.invalidSongLabel.Size = new System.Drawing.Size(66, 13);
+            this.invalidSongLabel.TabIndex = 22;
+            this.invalidSongLabel.Text = "Invalid Song";
             // 
             // MainWindow
             // 
@@ -297,6 +315,8 @@ namespace UsingSongGetter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(470, 531);
+            this.Controls.Add(this.invalidSongLabel);
+            this.Controls.Add(this.invalidSongInput);
             this.Controls.Add(this.hideButton);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.tabSelectorLabel);
@@ -324,8 +344,8 @@ namespace UsingSongGetter
             this.Text = "UsingSongGetter";
             this.titleBar.ResumeLayout(false);
             this.titleBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,6 +375,8 @@ namespace UsingSongGetter
         private System.Windows.Forms.Label tabSelectorLabel;
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Button hideButton;
+        private System.Windows.Forms.TextBox invalidSongInput;
+        private System.Windows.Forms.Label invalidSongLabel;
     }
 }
 

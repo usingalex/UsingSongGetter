@@ -44,18 +44,37 @@ namespace UsingSongGetter
         [DataMember]
         public int refreshSpeed;
 
-        public Settings(string prefix, string suffix, SongSource source, int refreshSpeed)
+        [DataMember]
+        public string invalidSongMessage;
+
+        public Settings(string prefix, string suffix, SongSource source, int refreshSpeed, string invalidSongMessage)
         {
             this.prefix = prefix;
             this.suffix = suffix;
             this.source = source;
             this.refreshSpeed = refreshSpeed;
+            this.invalidSongMessage = invalidSongMessage;
+        }
+
+        //Function for Checking all values of the Given settings Object. If they are Invalid, set them to the Default values.
+        public static Settings validateSettings(Settings settings)
+        {
+            if (settings.prefix == null)
+                settings.prefix = defaultValues().prefix;
+
+            if (settings.suffix == null)
+                settings.suffix = defaultValues().suffix;
+
+            if (settings.invalidSongMessage == null)
+                settings.invalidSongMessage = defaultValues().invalidSongMessage;
+
+            return settings;
         }
 
         //Function for getting the Default Settings.
         public static Settings defaultValues()
         {
-            return new Settings("", "", SongSource.SPOTIFY, 5);
+            return new Settings("", "", SongSource.SPOTIFY, 5, "Can't get Song");
         }
 
     }

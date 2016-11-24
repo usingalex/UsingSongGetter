@@ -98,7 +98,7 @@ namespace UsingSongGetter
                             }
                         }
                     }
-                    return "Can't get Song.";
+                    return _settings.invalidSongMessage;
                 //If InternetExplorer is selected.
                 case SongSource.IE:
                     //Get all tabs from the TabManager.
@@ -120,9 +120,9 @@ namespace UsingSongGetter
                         //Return the edited tab title.
                         return song;
                     }
-                    return "Can't get Song.";
+                    return _settings.invalidSongMessage;
                 default:
-                    return "Can't get Song.";
+                    return _settings.invalidSongMessage;
             }
         }
 

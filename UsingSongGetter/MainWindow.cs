@@ -75,6 +75,7 @@ namespace UsingSongGetter
             //Initialize the ConfigManager, and load the Settings.
             _cm = new ConfigManager(dir, "settings.cfg");
             _settings = _cm.loadSettings();
+            _settings = Settings.validateSettings(_settings);
             applySettings();
 
             //Initialize tray-icon
@@ -103,6 +104,9 @@ namespace UsingSongGetter
             //Set the text of the prefix/suffix input.
             prefixInput.Text = _settings.prefix;
             suffixInput.Text = _settings.suffix;
+
+            //Set the text of the Invalid-Song input.
+            invalidSongInput.Text = _settings.invalidSongMessage;
 
             //Set the value of the RefreshSlider.
             refreshSlider.Value = _settings.refreshSpeed;
@@ -238,7 +242,7 @@ namespace UsingSongGetter
         private void applyButton_Click(object sender, EventArgs e)
         {
             //Save the Settings to the File.
-            _cm.saveSettings(_settings = new Settings(prefixInput.Text, suffixInput.Text, getSelectedSource(), refreshSlider.Value));
+            _cm.saveSettings(_settings = new Settings(prefixInput.Text, suffixInput.Text, getSelectedSource(), refreshSlider.Value, invalidSongInput.Text));
             //Update the Settings in the Refresh-Worker.
             _refreshWorker.updateSettings(_settings);
             //Apply the Settings to the Input-Fields.
@@ -248,12 +252,24 @@ namespace UsingSongGetter
         //Resets the Settings if the Reset-Button is Clicked.
         private void resetButton_Click(object sender, EventArgs e)
         {
-            //Save the Default-Settings to the File.
-            _cm.saveSettings(_settings = Settings.defaultValues());
-            //Update the Settings in the Refresh-Worker.
-            _refreshWorker.updateSettings(_settings);
-            //Apply the Settings to the Input-Fields.
-            applySettings();
+            //Show a Messagebox and Store the result in a Variable.
+            DialogResult result = MessageBox.Show("Do you want to Reset your Settings?",
+                                                  "Reset Settings",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Warning);
+            
+            //If the Yes-Button is Clicked, Reset the settings.
+            switch(result)
+            {
+                case DialogResult.Yes:
+                    //Save the Default-Settings to the File.
+                    _cm.saveSettings(_settings = Settings.defaultValues());
+                    //Update the Settings in the Refresh-Worker.
+                    _refreshWorker.updateSettings(_settings);
+                    //Apply the Settings to the Input-Fields.
+                    applySettings();
+                    break;
+            }
         }
 
         //Update the Refresh-Label if the Refresh-Slider changes it's Value.
